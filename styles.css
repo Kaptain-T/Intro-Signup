@@ -98,12 +98,24 @@ input {
   transition: all 0.2s ease-in-out;
 }
 
+.email::placeholder{
+  color: var(--red);
+}
+
+.email.redd::placeholder{
+  color: grey;
+}
 input.error {
   border: 1px solid var(--red);
 }
 
-.fa-circle-exclamation{
+.fa-circle-exclamation:before{
+  display: inline-block;
+}
+.fa-circle-exclamation.hidden:before{
   display: none;
+}
+.fa-circle-exclamation{
   position: absolute;
   color: var(--red);
   right: 10px;
@@ -115,8 +127,7 @@ input.error {
   color: var(--grayish-blue);
   right: 30px;
   bottom: 20px;
-  width: 30px;
-  height: 30px;
+  cursor: pointer;
 }
 
 input:hover,
@@ -150,8 +161,4 @@ small span {
   color: var(--red);
   font-weight: 600;
   cursor: pointer;
-}
-
-.show{
-  display: inline-block;
 }

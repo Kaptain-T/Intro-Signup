@@ -1,10 +1,12 @@
+"use strict"
 const form = document.getElementById('form');
 const button = document.getElementById('button');
 const firstName = document.querySelector('.firstName');
 const lastName = document.querySelector('.lastName');
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
-const exclamationIcon = document.querySelector(".fa-circle-exclamation")
+const exclamationIcons = document.querySelectorAll(".fa-circle-exclamation")
+const eye = document.querySelector(".fa-regular")
 
 // console.log(firstName, lastName, email, password);
 
@@ -15,9 +17,7 @@ form.addEventListener('submit', (e) => {
   const emailVal = email.value;
   const passwordVal = password.value;
   console.log(fName, lName, emailVal, passwordVal);
-  const showIcons = function(){
-    exclamationIcon.classList.toggle("show");
-  }
+
   
 
   // Check first name
@@ -26,7 +26,7 @@ form.addEventListener('submit', (e) => {
   `;
   if (fName === '') {
     firstName.classList.add('error');
-    showIcons();
+    exclamationIcons[0].classList.toggle('hidden');
     if (firstName.nextElementSibling == null){
       firstName.insertAdjacentHTML("afterend", firstnamemessage);
     }
@@ -40,7 +40,7 @@ form.addEventListener('submit', (e) => {
   `;
   if (lName === '') {
     lastName.classList.add('error');
-    showIcons();
+    exclamationIcons[1].classList.toggle('hidden');
     if (lastName.nextElementSibling == null){
       lastName.insertAdjacentHTML("afterend", lastnamemessage);
     }
@@ -54,10 +54,11 @@ form.addEventListener('submit', (e) => {
   `;
   if (!validateEmail(emailVal) || emailVal === '') {
     email.classList.add('error');
-    showIcons();
+    email.classList.toggle("redd");
+    exclamationIcons[2].classList.toggle("hidden");
     if (email.nextElementSibling == null){
     email.insertAdjacentHTML("afterend", emailmessage);
-    email.placeholder = "email@example/com";
+    email.placeholder = "email@example.com";
     }
   } else {
     email.classList.remove('error');
@@ -69,7 +70,7 @@ form.addEventListener('submit', (e) => {
   `;
   if (passwordVal === '') {
     password.classList.add('error');
-    showIcons();
+    exclamationIcons[3].classList.toggle("hidden");
     if (password.nextElementSibling == null){
       password.insertAdjacentHTML("afterend", passwordmessage);
     }
@@ -84,3 +85,13 @@ function validateEmail(email) {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+
+eye.addEventListener("click", function(){
+  eye.classList.toggle("fa-eye")
+  eye.classList.toggle("fa-eye-slash")
+  if (password.type === "password"){
+    password.type = "text"
+  } else {
+    password.type = "password"
+  }
+})
