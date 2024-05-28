@@ -42,7 +42,7 @@ body {
 
 h1 {
   color: white;
-  font-size: clamp(25px, 3.5rem, 4.5vw);
+  font-size: clamp(28px, 3.5rem, 4.5vw);
   line-height: 1.4;
   margin-bottom: 1.5rem;
 }
@@ -172,7 +172,7 @@ small span {
   }
   .container{
     flex-direction: column;
-    width: 95%;
+    max-width: 90%;
     gap: 4rem;
   }
   
@@ -180,22 +180,19 @@ small span {
     text-align: center;
   }
 
+  form small {
+    display: block;
+    text-align: center;
+  }
   h4{
     padding: 1rem 2.5rem;
     border-radius: 0.5rem;
   }
-  button, input{
+  button, input, form{
     border-radius: 0.5rem;
   }
 
   .container-form{
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 400px){
-  .container{
-    width: 100%;
-    margin: 0;
   }
 }
