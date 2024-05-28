@@ -14,6 +14,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: 'Poppins', sans-serif;
   background: url('./images/bg-intro-desktop.png') no-repeat center;
@@ -73,11 +74,22 @@ form {
   border-radius: 1rem;
 }
 
-input {
+label{
   display: block;
   width: 100%;
-  padding: 1rem 1.5rem;
+  position: relative;
   margin-bottom: 1.2rem;
+}
+
+.error-message{
+  color: var(--red);
+  float: right;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+input {
+  width: 100%;
+  padding: 1rem 1.5rem;
   border: 1px solid var(--grayish-blue);
   border-radius: 0.5rem;
   font-family: inherit;
@@ -88,6 +100,23 @@ input {
 
 input.error {
   border: 1px solid var(--red);
+}
+
+.fa-circle-exclamation{
+  display: none;
+  position: absolute;
+  color: var(--red);
+  right: 10px;
+  bottom: 20px;
+}
+
+.fa-eye, .fa-eye-slash{
+  position: absolute;
+  color: var(--grayish-blue);
+  right: 30px;
+  bottom: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 input:hover,
@@ -121,4 +150,8 @@ small span {
   color: var(--red);
   font-weight: 600;
   cursor: pointer;
+}
+
+.show{
+  display: inline-block;
 }
